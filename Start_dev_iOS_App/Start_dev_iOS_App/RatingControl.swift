@@ -14,11 +14,12 @@ class RatingControl: UIStackView {
     //MARK: Initialization
   override init(frame: CGRect) {
     super.init(frame: frame)
+    setupButtons()
   }
   
   required init(coder: NSCoder) {
     super.init(coder: coder)
-    fatalError("init(coder:) has not been implemented")
+    setupButtons()
   }
   
   //MARK: Private Methods
@@ -26,8 +27,28 @@ class RatingControl: UIStackView {
     //create Button
     let button = UIButton()
     button.backgroundColor = .red
+
+    // Add constraints
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+    button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
+
+    // Add the button to the stack
+    addArrangedSubview(button)
+
+    //set up button action
+    button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+
   }
+
+    //MARK: Button Action
+    @objc func ratingButtonTapped(button: UIButton) {
+        print("押されました")
+    }
+
+
+
   
-  // Add constraints
-  
+
+
 }
