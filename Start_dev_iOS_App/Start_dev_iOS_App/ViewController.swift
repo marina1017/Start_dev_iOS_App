@@ -14,16 +14,12 @@ class ViewController: UIViewController, UITextFieldDelegate,UIImagePickerControl
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var mealNameLabel: UILabel!
   @IBOutlet weak var photoImageView: UIImageView!
+  @IBOutlet weak var ratingControl: RatingControl!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     nameTextField.delegate = self
 
-  }
-  
-  @IBAction func etDefaultLabelText(_ sender: UIButton) {
-    mealNameLabel.text = "Default Text"
-    
   }
   
   func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason){
